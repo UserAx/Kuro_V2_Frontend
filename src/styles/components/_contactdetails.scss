@@ -1,0 +1,20 @@
+.contactdetails{
+    display: flex;
+    flex-direction: column;
+}
+
+.contactdetails__container{
+    @extend .contactdetails;
+    align-items: center;
+    padding: 1rem;
+}
+
+.contactdetails__back__button{
+    @extend .contactdetails;
+    top: 0rem;
+}
+
+.contactdetails__details{
+    @extend .contactdetails;
+    align-items: center;
+}

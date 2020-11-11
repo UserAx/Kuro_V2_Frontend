@@ -1,0 +1,28 @@
+.kuro__home{
+    display: flex;
+    flex-direction: column;
+}
+
+.kuro__options {
+    display: flex;
+    flex-direction: column;
+}
+
+.kuro__header__buttoncomponent{
+    align-self: end;
+}
+
+.kuro__home__button__back{
+    align-self: baseline;
+    border: 1px solid;
+    border-radius: 50%;
+    padding: 0.2rem 0.5rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+    top: -12rem;
+    @extend .scaledown__effect;
+    @media (max-width: 47rem) {
+        top: -14rem
+    }
+}

@@ -1,0 +1,74 @@
+.contacts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact{
+    display: flex;
+    border: 1px solid;
+    align-items: center;
+    padding: 0.5rem;
+    width: 20rem;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+    padding-bottom: 0rem;
+}
+
+.contact__username{
+    font-size: 1.2rem;
+    text-overflow: ellipsis;
+    display: inline-block;
+    width: 8rem;
+    overflow: hidden;
+    white-space: nowrap;
+    font-weight: $fontWeightLight;
+}
+
+.contact__options{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+#contact__options__checkbox{
+    opacity: 0;
+    cursor: pointer;
+    &:checked ~ div.contact__options__buttons__container {
+        transform: rotateX(0deg);
+    }
+    &:not(:checked) ~ div.contact__options__buttons__container {
+        transform: rotateX(90deg);
+    }
+}
+
+.contact__options__dots{
+    transform: rotateZ(90deg);
+    position: relative;
+    top: -1.2rem;
+    z-index: -1;
+}
+
+.contact__options__buttons__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: rotateX(90deg);
+    transform-origin: top;
+    transition: transform 250ms ease-in-out;
+    position: relative;
+    top: -1rem;
+}
+
+.contact__options__button{
+    background: none;
+    border: 1px solid;
+    padding: 0px 5px;
+    width: 3.4rem;
+    @extend .scaleup__effect;
+}
+
+.contact__button__enterroom{
+    @extend .profileavatar__button;
+    @extend .scaledown__effect;
+}

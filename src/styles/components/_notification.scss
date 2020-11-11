@@ -1,0 +1,98 @@
+.notification__container{
+    flex-direction: column;
+    align-items: end;
+    margin-right: 9.5rem;
+    display: flex;
+    position: relative;
+    bottom: 9.2rem;
+    @media (max-width: 47rem) {
+        margin-right: 5.6rem;
+        flex-direction: column-reverse;
+        bottom: 11.8rem;
+    }
+}
+
+
+.notification__container__notification__icons{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    position: relative;
+    top: -2.2rem;
+    z-index: -1;
+    @media (max-width: 47rem) {
+        top: 2.8rem;
+    }
+}
+
+#notification__container__checkbox{
+    width: 1.5rem;
+    height: 2rem;
+    opacity: 0;
+    cursor: pointer;
+    &:checked ~ div.notifications__requests {
+        z-index: 0;
+        opacity: 1;
+    }
+}
+
+#notification__alert__icon__reddot{
+    border: none;
+    padding: 0.3rem;
+    background: #ff0000;
+    position: relative;
+    top: -1.8rem;
+    border-radius: 50%;
+    width: 0rem;
+    opacity: 0;
+}
+
+.notifications__requests{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 3rem;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 250ms ease-in-out;
+    @media (max-width: 47rem) {
+        top: 5rem;
+    }
+}
+
+.notification__request{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid;
+    padding: 0.5rem 1rem;
+    @media (max-width: 47rem) {
+        background: #fff;
+    }
+}
+
+.notification__request__info{
+    display: flex;
+    align-items: center;
+}
+
+.notification__info{
+    display: inline;
+    max-width: 15rem;
+    margin-left: 1rem;
+    @media (max-width: 47rem) {
+        max-width: 10rem;
+    }
+}
+
+.notification__request__options{
+    justify-content: space-between;
+    display: flex;
+    width: 8rem;
+    margin-top: 0.5rem;
+    align-self: end;
+}
+
+.notification__button{
+    @extend .contact__options__button;
+}
+                        

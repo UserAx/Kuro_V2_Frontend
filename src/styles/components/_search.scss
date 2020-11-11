@@ -1,0 +1,12 @@
+.searchpage{
+    @extend .contacts;
+    margin: 1rem 0rem;
+}
+
+.searchpage__finds{
+    @extend .contacts;
+}
+
+.searchpage__avatar{
+    margin-bottom: 1rem;
+}

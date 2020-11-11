@@ -1,0 +1,15 @@
+.header{
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 1rem;
+    padding: 0rem 4rem;
+    @media (max-width: 47rem) {
+        padding: 0rem;
+    }
+}
+
+.avatar__redirector{
+    @extend .profileavatar__button;
+    @extend .scaleup__effect;
+    align-self: center;
+}

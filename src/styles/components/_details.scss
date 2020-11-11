@@ -1,0 +1,45 @@
+.details__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem 0rem;
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    width: 26rem;
+    @media (max-width: 47rem) {
+        width: 18rem;
+    }
+}
+
+.details__userDetails__detail{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 0.5rem;
+    align-items: center;
+    > div:nth-child(2){
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+.details__labels__label{
+    @extend .contact__username;
+}
+
+.details__password__button{
+    background: #fff;
+    padding: 2px 0px;
+}
+
+.userDetails__button{
+    @extend .kuro__search__button;
+    @extend .blacktransition__button;
+    font-weight: 500;
+    padding: 0.5rem 1.2rem;
+}

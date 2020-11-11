@@ -1,0 +1,28 @@
+.profileavatar__image{
+    width: 6rem;
+    border-radius: 50%;
+    height: 6.6rem;
+    border: 2px solid;    
+}
+
+.profileavatar__image--contact{
+    width: 2.8rem;
+    height: 3rem;
+    border-radius: 50%;
+}
+
+.profileavatar__initials{
+    font-size: 2rem;
+    display: inline-block;
+    margin: 0.8rem;
+    border: 1px solid;
+    border-radius: 50%;
+    padding: 1rem 1.4rem;
+}
+
+.profileavatar__initials--contacts__icon {
+    width: 1rem;
+    font-size: 1rem;
+    margin: 0.6rem 0.2rem;
+    padding: 0.7rem;
+}

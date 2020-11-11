@@ -1,0 +1,64 @@
+.error{
+    max-width: 14rem;
+    font-size: 0.75rem;
+    text-align: center;
+    margin: $marginSmall 0rem;
+    color: #ff0000e0;
+}
+
+.profileavatar__button{
+    border-radius: 50%;
+    background: none;
+}
+
+.form__input{
+    font-size: $fontSizeNormal;
+    font-family: 'Roboto', arial;
+}
+
+.input__login {
+    padding: $paddingMedium;
+    inline-size: 10rem;
+    margin: $marginSmall 0rem;
+}
+
+.scaleup__effect{
+    &:hover{
+        transform: scale(1.1);
+    }
+}
+
+.scaledown__effect {
+    &:hover{
+        transform: scale(0.9);
+    }
+}
+
+.button__hollow__design{
+    background: none;
+    border: 1px solid;
+}
+
+.app__button__back{
+    font-size: 1.4rem;
+    transform: rotateY(180deg);
+    @media (max-width: 47rem) {
+        font-size: 1.2rem;
+    }
+}
+
+.app__logo__button {
+    background: none;
+}
+
+.app__buttonlogo{
+    width: 1.6rem;
+    @extend .scaleup__effect;
+}
+
+.blacktransition__button {
+    &:hover{
+        background: #000;
+        color: #fff;
+    }
+}

@@ -1,0 +1,16 @@
+.signup{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup__form{
+    display: flex;
+    flex-direction: column;
+}
+
+.button__signup{
+    @extend .button__login;//from login.scss
+    align-self: center;
+
+}

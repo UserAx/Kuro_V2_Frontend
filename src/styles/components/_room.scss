@@ -1,0 +1,124 @@
+.room{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media (max-width: 47rem) {
+        position: relative;
+        top: -6rem;
+    }
+}
+
+.room__container{
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.room__chatbox{
+    display: flex;
+    flex-direction: column;
+    width: 30rem;  
+    height: 18rem;
+    overflow-y: auto;
+    margin: 1rem;  
+    @media (max-width: 47rem) {
+        width: 16rem;
+    }
+}
+
+.room__contact__username{
+    @extend .contact__username;
+    text-align: center;
+}
+
+.chatbox__messagebox {
+    display: flex;
+    width: 16rem;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border: 1px solid;
+    margin: 0.5rem 0.4rem;
+    @media (max-width: 47rem) {
+        width: 8rem;
+    }
+}
+
+.message--sentmessage{
+    align-self: end;
+}
+
+.chatbox__options{
+    @extend .contact__options;
+    height: 1rem;
+}
+
+#chatbox__messagebox__options__checkbox{
+    opacity: 0;
+    cursor: pointer;
+    &:checked ~ button.chatbox__messagebox__option__button{
+        transform: rotateX(0deg);
+    }&:not(:checked) ~ button.chatbox__messagebox__option__button{
+        transform: rotateX(90deg);
+    }
+}
+
+.chatbox__messagebox__option__button{
+    @extend .contact__options__button;
+    position: relative;
+    top: -1.2rem;
+    transform: rotateX(90deg);
+    transform-origin: top;
+    transition: transform 250ms ease-in-out;
+    color: #000;//if the text is too light.
+}
+
+.chatbox__message{
+    font-weight: 300;
+    display: inline-block;
+    max-width: 12rem;
+}
+
+.messagebox__input__container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.button__messagebox{
+    @extend .button__hollow__design;
+    @extend .scaleup__effect;
+    padding: 0.5rem 1rem;
+}
+
+#messagebox__input__message{
+    @extend .searchBarInput;
+    width: 20rem;
+    @media (max-width: 47rem) {
+        width: 10rem;
+    }
+}
+
+#messagebox__input__file{
+    width: 1.6rem;
+    cursor: pointer;
+    position: relative;
+    left: 1.5rem;
+    opacity: 0;
+    z-index: 1;
+}
+
+.messagebox__input__attachment{
+    display: flex;
+    align-items: center;
+    //until I find out how to show attachments in input tags, keep it hidden.
+    z-index: -1;
+    opacity: 0;
+}
+
+.input__attachment__title{
+    @extend .contact__username;
+    margin-bottom: 0.5rem;
+}

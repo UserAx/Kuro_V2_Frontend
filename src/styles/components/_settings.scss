@@ -1,0 +1,23 @@
+.settings{
+    display: flex;
+    flex-direction: column;
+}
+
+.settings__avatar__change{
+    align-self: center;
+    margin-top: 1rem;
+}
+
+#settings__avatar__input{
+    display: none;
+}
+
+.settings__avatar__change__button{
+    @extend .userDetails__button;
+    font-size: 0.8rem;
+    padding: 0.4rem 0.6rem;
+}
+
+.error--settings{
+    align-self: center;
+}

@@ -1,0 +1,64 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem; 
+}
+
+.home__header{
+    margin-bottom: 1rem;
+}
+
+.home__login {
+    display: flex;
+    flex-direction: column;
+    > span:nth-child(2){
+        font-size: $fontSizeNormal;
+    }
+}
+
+.home__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid;
+    padding: 2.75rem;
+}
+
+.button__redirect__signup{
+    background: none;
+    font-size: $fontSizeNormal;
+    margin: 0 0.2rem;
+    padding: 0;
+    &:hover{
+        color:#009be9;
+    }
+}
+
+.app__logo__container{
+    border: 1px solid black;
+    border-radius: 50%;
+    padding: 10px;
+    margin: $marginSmall 0rem;
+}
+
+.app__logo{
+    margin: 0px 4px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial;
+}
+
+.app__button{
+    align-self: baseline;
+    position: relative;
+    right: 1.5rem;
+    background: none;
+    border-radius: 50%;
+    border: 1px solid;
+    padding: 1px 4px;
+    &:hover{
+        transform: scale(0.9);
+    }
+}
+
