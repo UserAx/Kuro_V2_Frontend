@@ -29,14 +29,12 @@ const SettingsComponent = (props) => {
 
     const onSave = async (user) => {
         try {
-            if(user.phone && user.phone.length !== 10){
-                setError("Please enter a 10 digit phone number.");
-                return;
+            if(user.phone.length !== 10){
+                alert("Phone Number must be a 10 digit number. Your number will not be updated until you provide a valid number");
             }
             await props.startEditUser(props.token, user);
             setError(undefined);
         } catch (e) {
-            console.log(e.response.data);
             if(e.response.data.error){
                 setError(e.response.data.error);
             }
@@ -85,7 +83,14 @@ const SettingsComponent = (props) => {
             setError("Only png, jpg and jpeg image files are supported.");
             return;
         }
-        avatar.src = URL.createObjectURL(e.target.files[0]);
+        if(!props.user.hasAvatar){
+            avatar.style.display="none";
+            const hiddenImageTag = document.querySelector('.profileavatar__image');
+            hiddenImageTag.src = URL.createObjectURL(e.target.files[0]);
+            hiddenImageTag.style.display = "inline-block";
+        }else{
+            avatar.src = URL.createObjectURL(e.target.files[0]);
+        }
         setShowSaveAvatarButton(true);
     };
 

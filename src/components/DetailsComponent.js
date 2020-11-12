@@ -69,7 +69,7 @@ export class Details extends React.Component {
     handleSave = () => {
         const user = {
             age: this.state.age,
-            gender: this.state.gender,
+            sex: this.state.sex,
             phone: this.state.phone,
             name: this.state.name
         }

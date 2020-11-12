@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import Room from './RoomComponent';
 import Contacts from './ContactsComponent';
-import { startLogoutUser, startHasAvatar, startFetchContacts, editUserContacts } from '../actions/user';
+import { startLogoutUser, startHasAvatar, startFetchContacts } from '../actions/user';
 import Avatar from './AvatarComponent';
 import generateHeader from '../components/HeaderComponent';
 import SearchBar from './SearchBarComponent';
@@ -12,7 +12,6 @@ import {setCurrentContactId} from '../actions/filter';
 import {store} from '../index';
 // export const io = socketIoClient("http://localhost:3001");
 export const io = socketIoClient();
-
 
 //Remember to change static url into dynamic by feeding process.env data to webpack.
 

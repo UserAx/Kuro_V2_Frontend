@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { startHasAvatar } from '../actions/user';
+const BASEURL = process.env.BASEURL;
 
-//Pass user._id, and hasAvatar for user and contactId and hasContactAvatar for contact into the component.
-//displaySmall, a boolean, for contacts Display.
 
 export const AvatarComponent = (props) => {
 
@@ -33,15 +32,18 @@ export const AvatarComponent = (props) => {
     return (
         (props.userId) ? (
                     (hasAvatar) ? (
-                        <img className="profileavatar__image" src={`http://localhost:3000/users/${props.userId}/avatar`} />
+                        <img className="profileavatar__image" src={`${BASEURL}/users/${props.userId}/avatar`} />
                     ) : (
-                                <span className="profileavatar__initials">{props.username.toUpperCase().substring(0, 1)}</span>
+                        <div>
+                            <img style={{"display" : "none"}} className="profileavatar__image" src={''}/>
+                            <span className="profileavatar__initials">{props.username.toUpperCase().substring(0, 1)}</span>
+                        </div>
                     )
             ) : (
                         (hasAvatar) ? (
                             <img className="profileavatar__image--contact" 
                             id="contactavatar" 
-                            src={`http://localhost:3000/users/${props.contactId}/avatar`} />
+                            src={`${BASEURL}/users/${props.contactId}/avatar`} />
                         ) : (
                                     <span id="contactavatar" className="profileavatar__initials">{props.username.toUpperCase().substring(0, 1)}</span>
                         )

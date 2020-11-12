@@ -1,8 +1,9 @@
 import axios from 'axios';
+const BASEURL = process.env.BASEURL;
 
 const generateAxiosInstance = (token = '') => {
     const axiosInstance = axios.create({
-        baseURL: 'http://localhost:3000',
+        baseURL: BASEURL,
         headers: {'Access-Control-Allow-Origin': '*', 'Authorization': `Bearer ${token}`}
     });
     return axiosInstance;
