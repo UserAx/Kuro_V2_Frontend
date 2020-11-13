@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { startHasAvatar } from '../actions/user';
-const BASEURL = process.env.BASEURL;
-
+import {BASEURL} from '../actions/user';
 
 export const AvatarComponent = (props) => {
 
@@ -32,7 +31,7 @@ export const AvatarComponent = (props) => {
     return (
         (props.userId) ? (
                     (hasAvatar) ? (
-                        <img className="profileavatar__image" src={`${BASEURL}/users/${props.userId}/avatar`} />
+                        <img className="profileavatar__image" src={`${BASEURL}users/${props.userId}/avatar`} />
                     ) : (
                         <div>
                             <img style={{"display" : "none"}} className="profileavatar__image" src={''}/>
@@ -43,7 +42,7 @@ export const AvatarComponent = (props) => {
                         (hasAvatar) ? (
                             <img className="profileavatar__image--contact" 
                             id="contactavatar" 
-                            src={`${BASEURL}/users/${props.contactId}/avatar`} />
+                            src={`${BASEURL}users/${props.contactId}/avatar`} />
                         ) : (
                                     <span id="contactavatar" className="profileavatar__initials">{props.username.toUpperCase().substring(0, 1)}</span>
                         )

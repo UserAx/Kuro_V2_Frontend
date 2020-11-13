@@ -1,5 +1,5 @@
 import axios from 'axios';
-const BASEURL = process.env.BASEURL;
+export const BASEURL = process.env.BASEURL;
 
 const generateAxiosInstance = (token = '') => {
     const axiosInstance = axios.create({

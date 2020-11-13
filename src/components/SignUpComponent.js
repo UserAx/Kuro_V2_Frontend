@@ -25,7 +25,7 @@ const SignUp = (props) => {
             if(e.response.data && e.response.data.code === 11000){
                 setError(`${Object.keys(e.response.data.keyPattern)} in use.`);
             }
-            console.log(e);
+            console.log(e.response.data);
         }
     }
 

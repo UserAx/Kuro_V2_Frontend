@@ -106,6 +106,7 @@ const SettingsComponent = (props) => {
         }
         try{
             await props.startAddAvatar(props.token, newAvatar.files[0]);
+            setError(undefined);
         }catch(e){
             console.log(e);
             setError("Unknown error. Please try again later.");
