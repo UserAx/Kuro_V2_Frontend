@@ -4,7 +4,10 @@ const BASEURL = process.env.BASEURL;
 const generateAxiosInstance = (token = '') => {
     const instance = axios.create({
         baseURL: BASEURL,
-        headers: {'Access-Control-Allow-Origin':'*', 'Authorization': `Bearer ${token}`}
+        headers: {
+            // 'Access-Control-Allow-Origin': '*', 
+            'Authorization': `Bearer ${token}`
+        }
     });
     return instance;
 }

@@ -28,7 +28,7 @@ io.on("connection", (socket) => {
         // console.log("After splice:", users);
         // console.log("Before splice", users);
         // console.log("Final array:", users);
-        console.log(_id, username);
+        // console.log(_id, username);
     });
 
     socket.on("sendMessage", (message, callback) => {
