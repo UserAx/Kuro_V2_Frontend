@@ -51,6 +51,7 @@ export const Contacts = (props) => {
                             history={props.history}
                             onhandleSendRequest={onhandleSendRequest}
                             onhandleRemove={onhandleRemove}
+                            onSearch={props.onSearch && props.onSearch}
                             />
                         </LazyLoad>
                     )

@@ -47,7 +47,7 @@ export const Contact = (props) => {
 
     return (
             <div className="contact">
-                <button className="contact__button__enterroom" onClick={enterRoom}>
+                <button disabled={props.onSearch} className="contact__button__enterroom" onClick={enterRoom}>
                         {/* {(props.hasAvatar) ? (
                             <img className="profile__avatar" src={`http://localhost:3000/users/${props.contact.id}/avatar`} />
                             ) : (

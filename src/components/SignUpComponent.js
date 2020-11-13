@@ -17,6 +17,9 @@ const SignUp = (props) => {
         if(password !== repeatPassword){
             return setError("Password doesn't match.");
         }
+        if(password.length < 8){
+            return setError("Password length must be greater than 8.")
+        }
         try{
             await props.startSignUpUser(user);
             setError(undefined);
@@ -25,7 +28,7 @@ const SignUp = (props) => {
             if(e.response.data && e.response.data.code === 11000){
                 setError(`${Object.keys(e.response.data.keyPattern)} in use.`);
             }
-            console.log(e.response.data);
+            console.log(e.response);
         }
     }
 
@@ -35,8 +38,8 @@ const SignUp = (props) => {
             <form onSubmit={onSubmit} className="signup__form">
                 <input type="text" required className="form__input input__login" placeholder="Email" />
                 <input type="text" required className="form__input input__login" placeholder="Username" />
-                <input type="password" required className="form__input input__login" placeholder="Password" />
-                <input type="password" required className="form__input input__login" placeholder="Retype Password" />
+                <input minLength="8" type="password" required className="form__input input__login" placeholder="Password" />
+                <input minLength="8" type="password" required className="form__input input__login" placeholder="Retype Password" />
                 <button className="button__signup">Sign Up</button>
             </form>
         </div>
