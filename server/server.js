@@ -7,8 +7,8 @@ const io = socket(server);
 io.origins("*:*");
 const PORT = 3001;
 const path = require('path');
-const cors = require('cors');
-app.use(cors());
+// const cors = require('cors');
+// app.use(cors());
 
 const publicDirectory = path.join(__dirname, '..', 'public');
 
