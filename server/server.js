@@ -12,8 +12,17 @@ const path = require('path');
 
 const publicDirectory = path.join(__dirname, '..', 'public');
 
+app.enable('trust proxy');
+const redirectToHttps = function(req, res, next) {
+    if(process.env.NODE_ENV !== 'development' && !req.secure) {
+        return res.redirect("https://" + req.headers.host + req.url());
+    }
+    next();
+}
+
 app.use(express.static(publicDirectory));
 app.use(express.json());
+app.use(redirectToHttps);
 
 const users = [];
 

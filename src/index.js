@@ -4,7 +4,7 @@ import AppRoute from './router/approute';
 import configureStore from './store/store';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
-// import {PURGE} from 'redux-persist';
+//import {PURGE} from 'redux-persist';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 
@@ -24,4 +24,4 @@ const renderApp = () => {
 }
 
 renderApp();
-// store.dispatch({type: PURGE});
+//store.dispatch({type: PURGE});
