@@ -1,15 +1,17 @@
 const express = require('express');
 const app = express();
-// const http = require('http');
-// const server = http.createServer(app);
-const https = require('https');
-const server = https.createServer(app);
+const http = require('http');
+const server = http.createServer(app);
+// const https = require('https');
+// const server = https.createServer(app);
 const socket = require("socket.io");
 const io = socket(server);
 io.origins("*:*");
 const PORT = 3001;
 const path = require('path');
-const sslRedirect = require('heroku-ssl-redirect');
+
+//Note: HTTPS only available after you purchase a ssl certificate.
+// const sslRedirect = require('heroku-ssl-redirect');
 // const cors = require('cors');
 // app.use(cors());
 
@@ -26,7 +28,7 @@ const publicDirectory = path.join(__dirname, '..', 'public');
 
 app.use(express.static(publicDirectory));
 app.use(express.json());
-app.use(sslRedirect());
+// app.use(sslRedirect());
 //console.log(process.env.NODE_ENV);
 
 //If above redirecToHttps doesn't work!!!
