@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
-const http = require('http');
-const server = http.createServer(app);
-const socket= require("socket.io");
+// const http = require('http');
+// const server = http.createServer(app);
+const https = require('https');
+const server = https.createServer(app);
+const socket = require("socket.io");
 const io = socket(server);
 io.origins("*:*");
 const PORT = 3001;
@@ -11,42 +13,37 @@ const path = require('path');
 // app.use(cors());
 
 const publicDirectory = path.join(__dirname, '..', 'public');
-console.log("Outside Redirect function:", process.env.NODE_ENV);
 
-
-// app.enable('trust proxy');
+//for something outside heroku server.
 // const redirectToHttps = function (req, res, next) {
-//     console.log("Redirect function is running:", process.env.NODE_ENV);
-//     console.log(req.secure);
 //     if(process.env.NODE_ENV !== 'development' && !req.secure) {
 //         return res.redirect("https://" + req.headers.host + req.url());
 //     }
 //     next();
 // }
+//app.use(redirectToHttps);
 
 app.use(express.static(publicDirectory));
 app.use(express.json());
-//app.use(redirectToHttps);
+app.enable("trust proxy");
 
-app.use (function (req, res, next) {
-    if (req.secure) {
-            // request was via https, so do no special handling
-            next();
-    } else {
-            // request was via http, so redirect to https
-            res.redirect('https://' + req.headers.host + req.url);
-    }
+app.use(function (req, res, next) {
+    if(req.headers["x-forwarded-proto"] === "https"){
+        // OK, continue
+        return next();
+      };
+      res.redirect('https://'+req.hostname+req.url);
 });
 
 const users = [];
 
 io.on("connection", (socket) => {
-    socket.on("join", ({username, _id}, callback) => {
+    socket.on("join", ({ username, _id }, callback) => {
         const exits = users.findIndex((user) => user.userId === _id);
-        if(exits >= 0){//-1 if not present. So, by that 
+        if (exits >= 0) {//-1 if not present. So, by that 
             users.splice(exits, 1);
         }
-        users.push({socketId: socket.id, username, userId: _id});
+        users.push({ socketId: socket.id, username, userId: _id });
         socket.join(_id);
         // console.log("After splice:", users);
         // console.log("Before splice", users);
@@ -55,9 +52,9 @@ io.on("connection", (socket) => {
     });
 
     socket.on("sendMessage", (message, callback) => {
-        io.to(...message.receivers).emit("message" ,message);
-        const {username} = users.find((user) => user.userId === message.sender);
-        io.to(...message.receivers).emit("messageAlert", {senderId: message.sender});
+        io.to(...message.receivers).emit("message", message);
+        const { username } = users.find((user) => user.userId === message.sender);
+        io.to(...message.receivers).emit("messageAlert", { senderId: message.sender });
     });
 
     socket.on("sendFriendRequest", (request, callback) => {
@@ -75,5 +72,5 @@ app.get('*', (req, res) => {
 });
 
 server.listen(process.env.PORT || PORT, () => {
-    console.log("server is up on"); 
+    console.log("server is up on");
 });
