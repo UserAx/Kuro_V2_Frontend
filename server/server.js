@@ -34,7 +34,7 @@ const redirectToHttps = (req, res, next) => {
     console.log(req.url);
     if (req.header('x-forwarded-proto') !== 'https') {
         console.log(`https://${req.header('host')}${req.url}`);
-        res.redirect(`https://${req.header('host')}`);
+        res.redirect(`https://${req.header('host')}${req.url}`);
     }
     else {
         next();
