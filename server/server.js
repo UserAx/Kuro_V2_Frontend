@@ -9,6 +9,7 @@ const io = socket(server);
 io.origins("*:*");
 const PORT = 3001;
 const path = require('path');
+const sslRedirect = require('heroku-ssl-redirect');
 // const cors = require('cors');
 // app.use(cors());
 
@@ -25,24 +26,26 @@ const publicDirectory = path.join(__dirname, '..', 'public');
 
 app.use(express.static(publicDirectory));
 app.use(express.json());
-console.log(process.env.NODE_ENV);
-app.enable("trust proxy");
+app.use(sslRedirect());
+//console.log(process.env.NODE_ENV);
 
-const redirectToHttps = (req, res, next) => {
-    console.log("on app.use");
-    if (req.header('x-forwarded-proto') !== 'https') {
-        console.log(`https://${req.header('host')}${req.url}`);
-        return res.redirect(`https://google.com`);
-        // res.redirect(`https://${req.header('host')}`);
-    }
-    else {
-        next();
-    }
-}
+//If above redirecToHttps doesn't work!!!
+//For redirecting other than heroku. 
+// const redirectToHttps = (req, res, next) => {
+//     // console.log("on app.use");
+//     if (req.header('x-forwarded-proto') !== 'https') {
+//         // console.log(`https://${req.header('host')}${req.url}`);
+//         // return res.redirect(`https://google.com`);
+//         return res.redirect(`https://${req.header('host')}${req.url}`);
+//     }
+//     else {
+//         next();
+//     }
+// }
 
-if(process.env.NODE_ENV === 'production') {
-    app.use(redirectToHttps);
-}
+// if(process.env.NODE_ENV === 'production') {
+//     app.use(redirectToHttps);
+// }
 
 const users = [];
 
