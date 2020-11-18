@@ -25,15 +25,16 @@ const publicDirectory = path.join(__dirname, '..', 'public');
 
 app.use(express.static(publicDirectory));
 app.use(express.json());
-app.enable("trust proxy");
+//app.enable("trust proxy");
 
-app.use(function (req, res, next) {
-    if(req.headers["x-forwarded-proto"] === "https"){
-        // OK, continue
-        return next();
-      };
-      res.redirect('https://'+req.hostname+req.url);
-});
+if(process.env.NODE_ENV === 'production') {
+    app.use((req, res, next) => {
+      if (req.header('x-forwarded-proto') !== 'https')
+        res.redirect(`https://${req.header('host')}${req.url}`);
+      else
+        next();
+    })
+}
 
 const users = [];
 
