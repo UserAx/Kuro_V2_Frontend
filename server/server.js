@@ -30,9 +30,9 @@ console.log(process.env.NODE_ENV);
 
 const redirectToHttps = (req, res, next) => {
     console.log("on app.use");
-    console.log(req.header('host'), req.url);
+    console.log(req.header('host'));
+    console.log(req.url);
     if (req.header('x-forwarded-proto') !== 'https') {
-        console.log("redirecting to https://");
         res.redirect(`https://${req.header('host')}${req.url}`);
     }
     else {
@@ -40,7 +40,6 @@ const redirectToHttps = (req, res, next) => {
     }
 }
 
-console.log(process.env.NODE_ENV);
 if(process.env.NODE_ENV === 'production') {
     app.use(redirectToHttps);
 }
