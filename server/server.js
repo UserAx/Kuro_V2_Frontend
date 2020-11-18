@@ -14,19 +14,29 @@ const publicDirectory = path.join(__dirname, '..', 'public');
 console.log("Outside Redirect function:", process.env.NODE_ENV);
 
 
-app.enable('trust proxy');
-const redirectToHttps = function(req, res, next) {
-    console.log("Redirect function is running:", process.env.NODE_ENV);
-    console.log(req.secure);
-    if(process.env.NODE_ENV !== 'development' && !req.secure) {
-        return res.redirect("https://" + req.headers.host + req.url());
-    }
-    next();
-}
+// app.enable('trust proxy');
+// const redirectToHttps = function (req, res, next) {
+//     console.log("Redirect function is running:", process.env.NODE_ENV);
+//     console.log(req.secure);
+//     if(process.env.NODE_ENV !== 'development' && !req.secure) {
+//         return res.redirect("https://" + req.headers.host + req.url());
+//     }
+//     next();
+// }
 
 app.use(express.static(publicDirectory));
 app.use(express.json());
-app.use(redirectToHttps);
+//app.use(redirectToHttps);
+
+app.use (function (req, res, next) {
+    if (req.secure) {
+            // request was via https, so do no special handling
+            next();
+    } else {
+            // request was via http, so redirect to https
+            res.redirect('https://' + req.headers.host + req.url);
+    }
+});
 
 const users = [];
 
