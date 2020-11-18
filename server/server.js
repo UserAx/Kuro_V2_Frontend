@@ -26,13 +26,13 @@ const publicDirectory = path.join(__dirname, '..', 'public');
 app.use(express.static(publicDirectory));
 app.use(express.json());
 console.log(process.env.NODE_ENV);
-//app.enable("trust proxy");
+app.enable("trust proxy");
 
 const redirectToHttps = (req, res, next) => {
     console.log("on app.use");
     if (req.header('x-forwarded-proto') !== 'https') {
         console.log(`https://${req.header('host')}${req.url}`);
-        res.redirect(`https://google.com`);
+        return res.redirect(`https://google.com`);
         // res.redirect(`https://${req.header('host')}`);
     }
     else {
