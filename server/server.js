@@ -30,11 +30,10 @@ console.log(process.env.NODE_ENV);
 
 const redirectToHttps = (req, res, next) => {
     console.log("on app.use");
-    console.log(req.header('host'));
-    console.log(req.url);
     if (req.header('x-forwarded-proto') !== 'https') {
         console.log(`https://${req.header('host')}${req.url}`);
-        res.redirect(`https://${req.header('host')}${req.url}`);
+        res.redirect(`https://google.com`);
+        // res.redirect(`https://${req.header('host')}`);
     }
     else {
         next();
