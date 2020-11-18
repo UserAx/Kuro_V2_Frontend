@@ -25,8 +25,10 @@ const publicDirectory = path.join(__dirname, '..', 'public');
 
 app.use(express.static(publicDirectory));
 app.use(express.json());
+console.log(process.env.NODE_ENV);
 //app.enable("trust proxy");
 
+console.log(process.env.NODE_ENV);
 if(process.env.NODE_ENV === 'production') {
     app.use((req, res, next) => {
       if (req.header('x-forwarded-proto') !== 'https')
