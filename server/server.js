@@ -28,19 +28,21 @@ app.use(express.json());
 console.log(process.env.NODE_ENV);
 //app.enable("trust proxy");
 
+const redirectToHttps = (req, res, next) => {
+    console.log("on app.use");
+    console.log(req.header('host'), req.url);
+    if (req.header('x-forwarded-proto') !== 'https') {
+        console.log("redirecting to https://");
+        res.redirect(`https://${req.header('host')}${req.url}`);
+    }
+    else {
+        next();
+    }
+}
+
 console.log(process.env.NODE_ENV);
 if(process.env.NODE_ENV === 'production') {
-    console.log("when in production");
-    app.use((req, res, next) => {
-        console.log("on app.use");
-      if (req.header('x-forwarded-proto') !== 'https'){
-          console.log("redirecting to https://");
-          res.redirect(`https://${req.header('host')}${req.url}`);
-      }
-      else{
-          next();
-      }
-    })
+    app.use(redirectToHttps);
 }
 
 const users = [];
