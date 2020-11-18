@@ -11,9 +11,13 @@ const path = require('path');
 // app.use(cors());
 
 const publicDirectory = path.join(__dirname, '..', 'public');
+console.log("Outside Redirect function:", process.env.NODE_ENV);
+
 
 app.enable('trust proxy');
 const redirectToHttps = function(req, res, next) {
+    console.log("Redirect function is running:", process.env.NODE_ENV);
+    console.log(req.secure);
     if(process.env.NODE_ENV !== 'development' && !req.secure) {
         return res.redirect("https://" + req.headers.host + req.url());
     }
