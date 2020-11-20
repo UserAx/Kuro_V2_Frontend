@@ -75,7 +75,6 @@ export const Notification = (props) => {
             const messageAlertCheckBox = getmessageAlertCheckBox();
             messageAlertCheckBox.addEventListener("change", () => {
                 if(messageAlertCheckBox.checked === true){
-                    console.log("When clicked");
                     redDot.style.opacity = "0";
                 }
             });

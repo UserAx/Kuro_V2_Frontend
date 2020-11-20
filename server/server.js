@@ -9,6 +9,7 @@ const io = socket(server);
 io.origins("*:*");
 const PORT = 3001;
 const path = require('path');
+const enforce = require('express-sslify');
 
 //Note: HTTPS only available after you purchase a ssl certificate.
 // const sslRedirect = require('heroku-ssl-redirect');
@@ -28,6 +29,7 @@ const publicDirectory = path.join(__dirname, '..', 'public');
 
 app.use(express.static(publicDirectory));
 app.use(express.json());
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
 // app.use(sslRedirect());
 //console.log(process.env.NODE_ENV);
 
