@@ -13,6 +13,7 @@ const SearchBarComponent = (props) => {
         type="text"
         onChange={setFilterText}/>    
         <button
+        disabled={!props.search.length}
         onClick={() => props.history.push(`/me/users/find=${props.search.replace(/ /g, '_')}`)} 
         className="kuro__search__button">Find</button>
     </div>
