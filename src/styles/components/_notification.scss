@@ -5,7 +5,7 @@
     display: flex;
     position: relative;
     bottom: 9.2rem;
-    @media (max-width: 47rem) {
+    @media (max-width: 45rem) {
         margin-right: 5.6rem;
         flex-direction: column-reverse;
         bottom: 11.8rem;
@@ -20,7 +20,7 @@
     position: relative;
     top: -2.2rem;
     z-index: -1;
-    @media (max-width: 47rem) {
+    @media (max-width: 45rem) {
         top: 2.8rem;
     }
 }
@@ -55,7 +55,7 @@
     z-index: -1;
     opacity: 0;
     transition: opacity 250ms ease-in-out;
-    @media (max-width: 47rem) {
+    @media (max-width: 45rem) {
         top: 5rem;
     }
 }
@@ -65,7 +65,7 @@
     flex-direction: column;
     border: 1px solid;
     padding: 0.5rem 1rem;
-    @media (max-width: 47rem) {
+    @media (max-width: 45rem) {
         background: #fff;
     }
 }
@@ -79,7 +79,7 @@
     display: inline;
     max-width: 15rem;
     margin-left: 1rem;
-    @media (max-width: 47rem) {
+    @media (max-width: 45rem) {
         max-width: 10rem;
     }
 }
