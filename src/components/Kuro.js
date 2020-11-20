@@ -90,13 +90,13 @@ export const Kuro = (props) => {
     return (
         <div className="kuro">
             <div className="kuro__options">
+                <Notification/>
                     <Header
                     onSettings={false}
                     history={props.history}
                     username={props.username}
                     userId={props._id}
                     onhandleLogout={onhandleLogout} />
-                <Notification/>
                 {showBack &&
                     <button onClick={() => setshowBack(undefined)} className=" app__logo__button kuro__home__button__back">
                         <div className="app__button__back">➙</div>

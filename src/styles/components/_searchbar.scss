@@ -4,21 +4,20 @@
     display: flex;
     width: 21rem;
     justify-content: space-between;
-    align-items: center;
 }
 
 .searchBarInput{
     font-size: 1.2rem;
     padding: 0.5rem 0.8rem;
     width: 14rem;
-    font-weight: $fontWeightLight;
+    font-weight: 300;
 }
 
 .kuro__search__button{
     background: none;
     border: 1px solid;
     padding: 0.4rem 0.8rem;
-    font-weight: $fontWeightLight;
+    font-weight: 300;
     font-size: 1.2rem;
     @extend .scaleup__effect;
 }

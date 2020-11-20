@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: column;
     > span:nth-child(2){
-        font-size: $fontSizeNormal;
+        font-size: 0.85rem;
     }
 }
 
@@ -27,7 +27,7 @@
 
 .button__redirect__signup{
     background: none;
-    font-size: $fontSizeNormal;
+    font-size: 0.85rem;
     margin: 0 0.2rem;
     padding: 0;
     &:hover{
@@ -39,7 +39,7 @@
     border: 1px solid black;
     border-radius: 50%;
     padding: 10px;
-    margin: $marginSmall 0rem;
+    margin: 0.5rem 0rem;
 }
 
 .app__logo{

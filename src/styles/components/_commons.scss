@@ -2,7 +2,7 @@
     max-width: 14rem;
     font-size: 0.75rem;
     text-align: center;
-    margin: $marginSmall 0rem;
+    margin: 0.5rem 0rem;
     color: #ff0000e0;
 }
 
@@ -12,14 +12,14 @@
 }
 
 .form__input{
-    font-size: $fontSizeNormal;
+    font-size: 0.85rem;
     font-family: 'Roboto', arial;
 }
 
 .input__login {
-    padding: $paddingMedium;
+    padding: 0.75rem;
     inline-size: 10rem;
-    margin: $marginSmall 0rem;
+    margin: 0.5rem 0rem;
 }
 
 .scaleup__effect{
