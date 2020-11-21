@@ -60,7 +60,7 @@ export const Contact = (props) => {
                         hasAvatar={props.contact.hasAvatar} />
                 </button>
                         <span id={props.contact.id} className="contact__username">{props.contact.username}</span>
-                    <div className="contact__options">
+                    <div  style={{"align-items" : "end"}} className="contact__options">
                         <input id="contact__options__checkbox" type="checkbox" />
                         <div className="contact__options__dots">
                             <span>.</span>
@@ -68,7 +68,7 @@ export const Contact = (props) => {
                             <span>.</span>
                         </div>
                         <div className="contact__options__buttons__container">
-                            <button className="contact__options__button"
+                            <button  className="contact__options__button"
                             disabled={!props.contactPositionId[0]}
                             onClick={() => props.history.push(`/me/contactdetails/id=${(props.contact._id || props.contactPositionId)}`)
                             }>Details</button>
