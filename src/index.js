@@ -26,4 +26,4 @@ const renderApp = () => {
 renderApp();
 //store.dispatch({type: PURGE});
 
-//commit number: fourteeth.
+//commit number: 15-loading-css-parts
