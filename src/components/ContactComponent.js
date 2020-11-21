@@ -67,7 +67,7 @@ export const Contact = (props) => {
                             <span>.</span>
                             <span>.</span>
                         </div>
-                        {/* <div className="contact__options__buttons__container">
+                        <div className="contact__options__buttons__container">
                             <button  className="contact__options__button"
                             disabled={!props.contactPositionId[0]}
                             onClick={() => props.history.push(`/me/contactdetails/id=${(props.contact._id || props.contactPositionId)}`)
@@ -83,7 +83,7 @@ export const Contact = (props) => {
                                 onClick={sendFriendRequest}>Add</button>
                             )
                             }
-                        </div> */}
+                        </div>
                     </div>
             </div>
     );
