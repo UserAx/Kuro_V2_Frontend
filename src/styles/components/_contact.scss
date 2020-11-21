@@ -13,6 +13,9 @@
     margin-bottom: 1rem;
     justify-content: space-between;
     padding-bottom: 0rem;
+    @media (max-width: 45rem){
+        width: 16rem;
+    }
 }
 
 .contact__username{
@@ -32,7 +35,6 @@
 }
 
 #contact__options__checkbox{
-    align-self: end;
     opacity: 0;
     cursor: pointer;
     &:checked ~ div.contact__options__buttons__container {
@@ -48,7 +50,6 @@
     position: relative;
     top: -1.2rem;
     z-index: -1;
-    align-self: end;
 }
 
 
@@ -61,8 +62,6 @@
     transition: transform 250ms ease-in-out;
     position: relative;
     top: -1rem;
-    align-self: end;
-
 }
 
 .contact__options__button{
