@@ -34,6 +34,7 @@
 #contact__options__checkbox{
     opacity: 0;
     cursor: pointer;
+    width: 1rem;
     &:checked ~ div.contact__options__buttons__container {
         transform: rotateX(0deg);
     }
