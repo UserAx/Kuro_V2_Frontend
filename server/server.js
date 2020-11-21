@@ -9,9 +9,12 @@ const io = socket(server);
 io.origins("*:*");
 const PORT = 3001;
 const path = require('path');
-const enforce = require('express-sslify');
 
 //Note: HTTPS only available after you purchase a ssl certificate.
+//Using Express-sslify:
+// const enforce = require('express-sslify');
+// app.use(enforce.HTTPS({ trustProtoHeader: true }));
+//Using SSLRedirect
 // const sslRedirect = require('heroku-ssl-redirect');
 // const cors = require('cors');
 // app.use(cors());
@@ -29,16 +32,15 @@ const publicDirectory = path.join(__dirname, '..', 'public');
 
 app.use(express.static(publicDirectory));
 app.use(express.json());
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
 // app.use(sslRedirect());
 //console.log(process.env.NODE_ENV);
 
 //If above redirecToHttps doesn't work!!!
 //For redirecting other than heroku. 
 // const redirectToHttps = (req, res, next) => {
-//     // console.log("on app.use");
+//     console.log("on app.use");
 //     if (req.header('x-forwarded-proto') !== 'https') {
-//         // console.log(`https://${req.header('host')}${req.url}`);
+//         console.log(`https://${req.header('host')}${req.url}`);
 //         // return res.redirect(`https://google.com`);
 //         return res.redirect(`https://${req.header('host')}${req.url}`);
 //     }

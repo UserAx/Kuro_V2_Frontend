@@ -28,7 +28,7 @@
 .contact__options{
     display: flex;
     flex-direction: column;
-    align-items: end;
+    align-items: end !important;
 }
 
 #contact__options__checkbox{
@@ -47,6 +47,7 @@
     position: relative;
     top: -1.2rem;
     z-index: -1;
+    align-self: end !important;
 }
 
 
