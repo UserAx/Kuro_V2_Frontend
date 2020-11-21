@@ -34,12 +34,12 @@
 #contact__options__checkbox{
     opacity: 0;
     cursor: pointer;
-    // &:checked ~ div.contact__options__buttons__container {
-    //     transform: rotateX(0deg);
-    // }
-    // &:not(:checked) ~ div.contact__options__buttons__container {
-    //     transform: rotateX(90deg);
-    // }
+    &:checked ~ div.contact__options__buttons__container {
+        transform: rotateX(0deg);
+    }
+    &:not(:checked) ~ div.contact__options__buttons__container {
+        transform: rotateX(90deg);
+    }
 }
 
 .contact__options__dots{
@@ -54,7 +54,7 @@
     display: flex;
     flex-direction: column;
     align-items: end !important;
-    // transform: rotateX(90deg);
+    transform: rotateX(90deg);
     transform-origin: top;
     transition: transform 250ms ease-in-out;
     position: relative;
@@ -64,6 +64,7 @@
 .contact__options__button{
     background: none;
     border: 1px solid;
+    align-self: end;
     padding: 0px 5px;
     width: 3.4rem;
     @extend .scaleup__effect;
