@@ -17,7 +17,7 @@ export const io = socketIoClient();
 
 const buttonComponent = (props) => {
     return (
-        <div className="kuro__header__buttoncomponent">
+        <div>
             <button onClick={props.onhandleLogout} className="app__logo__button">
                 <img className="app__buttonlogo" src="/images/logout.png" />
             </button>
