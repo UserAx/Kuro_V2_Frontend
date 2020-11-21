@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Login from './LoginComponent';
 import SignUp from './SignUpComponent';
 
 export default (props) => {
     
     const [showBack, setshowBack] = useState(undefined);
+
+    useEffect(() => {
+        console.log(location);
+        if (location.protocol !== 'https:') {
+            location.replace(`https:${location.href.substring(location.protocol.length)}`);
+        }
+    }, []);
 
     return (
         <div className="home">
