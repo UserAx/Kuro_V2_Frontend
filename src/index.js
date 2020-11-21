@@ -25,3 +25,5 @@ const renderApp = () => {
 
 renderApp();
 //store.dispatch({type: PURGE});
+
+//commit number: fourteeth.
