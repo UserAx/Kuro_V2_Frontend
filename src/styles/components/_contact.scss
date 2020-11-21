@@ -53,8 +53,8 @@
 .contact__options__buttons__container{
     display: flex;
     flex-direction: column;
-    align-items: end;
-    transform: rotateX(90deg);
+    align-items: end !important;
+    // transform: rotateX(90deg);
     transform-origin: top;
     transition: transform 250ms ease-in-out;
     position: relative;
