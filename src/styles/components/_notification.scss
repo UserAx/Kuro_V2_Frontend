@@ -1,14 +1,11 @@
 .notification__container{
     flex-direction: column;
-    align-items: baseline;
+    align-items: end;
     display: flex;
     position: absolute;
     top: 1rem;
-    left: 2rem;
+    left: -15rem;
     width: 18rem;
-    @media (max-width: 47rem) {
-        left: 1rem;
-    }
 }
 
 
@@ -61,6 +58,11 @@
     position: relative;
     background: #fff;
     align-items: end;
+    left: 16rem;
+    @media  (max-width: 45rem){
+        left: 14rem;
+    }
+
 }
 
 .notification__request__info{

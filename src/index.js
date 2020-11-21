@@ -26,4 +26,4 @@ const renderApp = () => {
 renderApp();
 //store.dispatch({type: PURGE});
 
-//commit number: 15-loading-css-parts
+//commit number: 16-fix-css-parts
