@@ -7,7 +7,7 @@ export default (props) => {
     const [showBack, setshowBack] = useState(undefined);
 
     useEffect(() => {
-        console.log(location);
+        // console.log(location);
         if (location.protocol !== 'https:') {
             location.replace(`https:${location.href.substring(location.protocol.length)}`);
         }
