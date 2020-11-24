@@ -122,3 +122,14 @@
     @extend .contact__username;
     margin-bottom: 0.5rem;
 }
+
+.error--room{
+    display: inline-block;
+    align-self: center;
+    max-width: 14rem;
+}
+
+.chatbox__messagebox__input__container{
+    display: flex;
+    flex-direction: column;
+}

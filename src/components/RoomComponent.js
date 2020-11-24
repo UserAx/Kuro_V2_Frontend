@@ -162,8 +162,8 @@ const Room = (props) => {
                         )
                     })}
                 </div>
-                <div className="chatbox__messgaebox">
-                        <span className="error">{error}</span>
+                <div className="chatbox__messagebox__input__container">
+                        <span className="error error--room">{error}</span>
                         <span className="input__attachment__title"></span>
                         <div className="messagebox__input__container">
                             <input type="text" id="messagebox__input__message" />
