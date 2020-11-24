@@ -121,6 +121,7 @@
 .input__attachment__title{
     @extend .contact__username;
     margin-bottom: 0.5rem;
+    align-self: baseline;
 }
 
 .error--room{
